@@ -1,32 +1,21 @@
-
-class CounterButton extends HTMLElement {
-    shadow: ShadowRoot;
-    button: HTMLButtonElement;
-    count: number;
-
-    constructor() {
-        super();
-
-        this.shadow = this.attachShadow({mode: "open"});
-        this.shadow.innerHTML = `
-        <div>
-            <p>Hello from the shadow realm</p>
-            <slot></slot>
-        </div>`;
+import { html, LitElement } from "lit";
+import { customElement, state } from "lit/decorators.js";
 
 
-        this.button = this.querySelector('button')!;
-        this.count = 0;
+@customElement("lit-counter")
+export class LitCounter extends LitElement {
 
-        console.log("Hello from the WebComponent", this, this.button);
-        this.button.addEventListener('click', this.handleClick);
+    @state()
+    count = 0;
+
+    protected render(): unknown {
+        return html`
+            <slot @click="${ this.onClick }"></slot>
+            <p>You clicked ${ this.count } times!</p>
+        `
     }
 
-    handleClick = () => {
-        this.count += 1;
-        this.button.textContent = `Clicked ${this.count} Times`;
+    onClick() {
+        this.count++;
     }
-
 }
-
-customElements.define('wc-count', CounterButton);
