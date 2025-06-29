@@ -2,17 +2,17 @@ import { html, LitElement } from "lit";
 import { customElement, state } from "lit/decorators.js";
 
 
-@customElement("lit-counter")
-export class LitCounter extends LitElement {
+@customElement("lit-my-component")
+export class LitMyComponent extends LitElement {
 
     @state()
     count = 0;
 
     protected render() {
         return html`
-            <slot @click="${ this.onClick }"></slot>
-            <p>You clicked ${ this.count } times!</p>
-        `
+            <button @click="${ this.onClick }">Lit me!</button>
+            <p>You lit ${ this.count } times!</p>
+        `;
     }
 
     onClick() {
