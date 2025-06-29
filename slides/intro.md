@@ -4,7 +4,7 @@
 * Framework-agnostic
 
 ## Goals
-* Custom, reusable UI components, no frameork lock-in
+* Custom, reusable UI components, no framework lock-in
 * Encapsulation
     * Style & Logic
 
