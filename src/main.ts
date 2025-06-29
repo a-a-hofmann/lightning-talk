@@ -8,7 +8,7 @@ export class LitCounter extends LitElement {
     @state()
     count = 0;
 
-    protected render(): unknown {
+    protected render() {
         return html`
             <slot @click="${ this.onClick }"></slot>
             <p>You clicked ${ this.count } times!</p>
