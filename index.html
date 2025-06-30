@@ -125,10 +125,28 @@
     <h2>Demo</h2>
     <p>I'm in the DOM!</p>
 
+    <my-component></my-component>
+
 </div>
 </body>
 
 <script>
+    class MyComponent extends HTMLElement {
+        constructor() {
+            super();
+            console.log('Hello from my component');
+
+            const p = document.createElement('p');
+            p.innerText = "My paragraph";
+
+            const style = document.createElement('style');
+            style.innerText = "p { color: red }";
+
+            this.appendChild(p);
+            this.appendChild(style);
+        }
+    }
+    customElements.define('my-component', MyComponent);
 
 </script>
 
