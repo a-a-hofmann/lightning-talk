@@ -170,6 +170,14 @@
             const template = document.getElementById('counter-button-template').content;
 
             this.shadowRoot.appendChild(template.cloneNode(true));
+
+            this.count = 0;
+            this.shadowRoot.querySelector('button').addEventListener('click', this.onClick)
+        }
+
+        onClick = () => {
+            this.count++;
+            this.shadowRoot.querySelector('p').innerText = `You clicked ${this.count} times!`;
         }
     }
 
