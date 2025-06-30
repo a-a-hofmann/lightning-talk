@@ -23,6 +23,14 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+        ol {
+            padding-inline-start: 0;
+        }
+
+        li {
+            text-align: left;
+        }
+
         body {
             margin: 0;
             display: flex;
@@ -36,11 +44,19 @@
             line-height: 1.1;
         }
 
+        h1 {
+            font-size: 2.8em;
+            line-height: 1.1;
+        }
+
         #app {
             max-width: 1280px;
             margin: 0 auto;
             padding: 2rem;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         button {
@@ -63,12 +79,29 @@
         button:focus-visible {
             outline: 4px auto -webkit-focus-ring-color;
         }
+
+        blockquote {
+            background: #545454;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            quotes: "\201C" "\201D" "\2018" "\2019";
+        }
+
+        blockquote:before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
+        }
     </style>
 
     <style>
-        /*p {*/
-        /*    color: dodgerblue;*/
-        /*}*/
+        p {
+            /*color: dodgerblue;*/
+        }
     </style>
 
 </head>
@@ -77,8 +110,19 @@
 <script type="module" src="/src/lit-my-component.ts"></script>
 
 <div id="app">
+    <h1>Web Components</h1>
+    <blockquote>
+        Web Components is a suite of different technologies allowing you to create reusable custom elements — with their
+        functionality encapsulated away from the rest of your code — and utilize them in your web apps.
+    </blockquote>
+    <h2>Three Web Standards</h2>
+    <ol>
+        <li>Custom Elements: set of JS APIs to define custom elements and their behavior</li>
+        <li>Shadow DOM: encapsulate DOM trees to an element</li>
+        <li>Templates: reusable HTML fragments</li>
+    </ol>
 
-    <p>I'm in the DOM</p>
+    <p>I'm in the DOM!</p>
 
 </div>
 </body>
