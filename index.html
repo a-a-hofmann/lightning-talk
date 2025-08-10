@@ -136,16 +136,18 @@
             super();
             console.log('Hello from my component');
 
+            this.attachShadow({ mode: "open" });
             const p = document.createElement('p');
             p.innerText = "My paragraph";
 
             const style = document.createElement('style');
             style.innerText = "p { color: red }";
 
-            this.appendChild(p);
-            this.appendChild(style);
+            this.shadowRoot.appendChild(p);
+            this.shadowRoot.appendChild(style);
         }
     }
+
     customElements.define('my-component', MyComponent);
 
 </script>
