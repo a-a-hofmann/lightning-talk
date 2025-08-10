@@ -125,6 +125,36 @@
     <h2>Demo</h2>
     <p>I'm in the DOM!</p>
 
+    <template id="counter-button-template">
+        <style>
+            p {
+                color: limegreen
+            }
+
+            button {
+                border-radius: 8px;
+                border: 1px solid transparent;
+                padding: 0.6em 1.2em;
+                font-size: 1em;
+                font-weight: 500;
+                font-family: inherit;
+                background-color: #1a1a1a;
+                cursor: pointer;
+                transition: border-color 0.25s;
+            }
+
+            button:hover {
+                border-color: #646cff;
+            }
+
+            button:focus,
+            button:focus-visible {
+                outline: 4px auto -webkit-focus-ring-color;
+            }
+        </style>
+        <button>Click me!</button>
+        <p>You clicked 0 times!</p>
+    </template>
     <my-component></my-component>
 
 </div>
@@ -137,14 +167,9 @@
             console.log('Hello from my component');
 
             this.attachShadow({ mode: "open" });
-            const p = document.createElement('p');
-            p.innerText = "My paragraph";
+            const template = document.getElementById('counter-button-template').content;
 
-            const style = document.createElement('style');
-            style.innerText = "p { color: red }";
-
-            this.shadowRoot.appendChild(p);
-            this.shadowRoot.appendChild(style);
+            this.shadowRoot.appendChild(template.cloneNode(true));
         }
     }
 
